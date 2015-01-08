@@ -1,0 +1,74 @@
+
+<div id="main"> 
+ <div id="sidebar">
+    <ul class="orderdetails">
+      <% @categories.each do |cat| %>
+      <p>
+        <%= link_to cat.name, products_path(:cat_id => cat.id) %>
+      </p>  
+      <% end %>
+    </ul>
+  </div>
+  <div id="content"> 
+  <h1>Thông tin đơn hàng</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+      
+        <%= form_for(:order) do |f| %>    
+          <%= f.label "Họ tên " %>      
+          <%= f.text_field :username,  :value => @order.username, readonly: true,class: 'form-control' %>
+
+          <%= f.label "Nhập địa chỉ email của bạn * " %>
+          <%= f.text_field :email,  :value => @order.email, readonly: true,class: 'form-control' %>
+
+          <%= f.label "Số điện thoại" %>
+          <%= f.text_field :phonenumber, :value => @order.phonenumber, readonly: true, class: 'form-control'%>
+          
+          <%= f.label "Địa chỉ giao hàng" %>
+          <%= f.text_field :ShippingAddress,  :value => @order.ShippingAddress, readonly: true,class: 'form-control' %>
+        <% end %>
+        <br/>
+        <div style="background-color:#f4efef;width:auto; padding-bottom:3px; padding-top:2px; height:24px">     
+                  <b>1. Thông tin đơn hàng  </b><br>
+        </div>    
+      <table style="padding-top:1px; "> 
+      <tbody>
+        
+        <%= form_for(:order, url: order_path) do |f| %>
+          <% @products.each do |detail|
+            @product = detail["Product"];
+            @quantity = detail["Quantity"];  %>
+              <tr>
+                <td valign="top" width="50px" >      
+                    <%= image_tag(@product["urlImage"])%>
+                </td>
+                <td valign="top">
+                  <span style="color:black"><b><%= @product["name"] %></b> </span><br>
+                    <b>Giá: <span style="color:#6d2524"><%= @product["price"] %></span></b>&nbsp; &nbsp;
+                    <b>Số lượng: <span style="color:#6d2524"><%= @quantity %></span></b>
+                  </span>
+                </td>
+              </tr>
+              <tr><td colspan="2"></td></tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <%= button_to "Trở về trang chủ", root_path, :class => "btn btn-primary" ,:method => :get  %><br />  
+      </div>    
+    </div>
+  </div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

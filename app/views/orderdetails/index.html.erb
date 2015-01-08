@@ -1,0 +1,46 @@
+<div id="main"> 
+ <div id="sidebar">
+    <ul class="orderdetails">
+      <% @categories.each do |cat| %>
+      <p>
+        <%= link_to cat.name, products_path(:cat_id => cat.id) %>
+      </p>  
+      <% end %>
+    </ul>
+  </div>
+  <div id="content"> 
+  <div style="cursor:pointer;width:auto;border-bottom:#d6d6d6 1px dotted;"> 
+    <h3>GIỎ HÀNG CỦA BẠN</h3>    
+    <% if !session[:cart].nil? && !session[:cart].blank? %>    
+      </div>
+        <div style="padding-top:2px">
+        <br>
+        <table style="padding-top:1px; "> 
+        <tbody>
+          <%= render partial: "orderdetail", collection: @orderdetails %>
+        </tbody>
+        </table>
+      <div style="width:auto;border-bottom:#d6d6d6 1px solid;"> &nbsp;</div>
+      <table width="100%">
+      <tbody><tr><td valign="top"><span style="font-size:medium; font-weight:bold; color:black">Tổng cộng:119,200 VNĐ</span></td></tr>
+      </tbody></table>
+      <br>
+      <div style="padding-left:300px;padding-right:300px">
+        <center>
+        <%= form_for(:orderdetail, :url => deleteallcart_path) do |f| %>     
+           <%= f.submit "Trả lại toàn bộ", class: 'btn btn-primary' %> <br/>
+        <% end %>
+        <br/>
+           <%= button_to "Tiếp tục mua hàng", root_path, :class => "btn btn-primary" ,:method => :get  %><br/>    
+           <%= button_to "Thanh toán", new_order_path, :class => "btn btn-primary" ,:method => :get  %><br />       
+       </center></div>
+    
+    <% else %>
+      Giỏ hàng đang trống. Mời bạn <%= link_to "Mua hàng", root_path , method: :get%>
+
+    <% end %>
+  </div>
+</div> 
+</div>
+
+

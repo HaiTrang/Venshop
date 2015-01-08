@@ -1,0 +1,22 @@
+<%= f.label :category_id ,"Category" %>      
+      <%= f.collection_select :category_id, Category.all, :id, :name %>
+
+      <%= f.label :name ,"Title" %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :description, "Description" %>
+      <%= f.text_field :description, class: 'form-control' %>
+
+      <%= f.label :SmallImage , "Url of Small Image"%>
+      <%= f.text_field :urlImage, class: 'form-control' %>
+
+      <%= f.label :urlLargeImage , "Url of Large Image"%>
+      <%= f.text_field :urlLargeImage, class: 'form-control' %>      
+
+      <%= f.label :price ,"Price" %>
+      <%= f.text_field :price, class: 'form-control' %>
+      
+      <%= f.label :recommend ,"Recommend item" %>
+      <%= f.check_box :recflag, class: 'form-control' %>     
+   
+      <%= f.hidden_field :user_id, :value => session[:user_id] %> 

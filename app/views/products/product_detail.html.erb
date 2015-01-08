@@ -1,0 +1,39 @@
+<% provide(:title, 'Venshop') %>
+<%= render 'layouts/header' %>
+<div id="main">
+ 
+ <div id="sidebar">
+    <ul class="categories">
+      <% @categories.each do |cat| %>
+      <p>
+        <%= link_to cat.name, products_path(:cat_id => cat.id) %>
+      </p>  
+      <% end %>
+    </ul>
+  </div>
+  <div id="content">
+    <div class="cont_wrap">    
+      <ul class="products">
+         <div class="img_div" height = "100%" >
+           <%= image_tag(@productdetails.urlLargeImage)%>
+         </div>
+         <div class="info_div">
+           <p font-size = "19px"><%= @productdetails.name %></p>
+           <p><%= @productdetails.price %></p>
+           <p><b>Information</p></b>
+           <p><%= @productdetails.description %></p>
+           <%
+              @url = orderdetails_path
+              session[:product_id]=@productdetails.id              
+           %>
+           <%= form_for(:product, url: productdetail_path(:product_id => @productdetails.id),method: "post") do |f| %>
+            
+            
+            <%= f.submit "Buy", class: 'btn btn-primary' %> 
+          <% end %>
+           
+         </div>
+      </ul>
+    </div>
+  </div> 
+</div>

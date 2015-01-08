@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orderdate: 2014-12-26 11:21:21
+  shipdate: 2014-12-26 11:21:21
+  ShippingAddress: MyText
+  ShippingCost: 1
+  OrderStatus: MyText
+  description: MyText
+  User_id: 
+
+two:
+  orderdate: 2014-12-26 11:21:21
+  shipdate: 2014-12-26 11:21:21
+  ShippingAddress: MyText
+  ShippingCost: 1
+  OrderStatus: MyText
+  description: MyText
+  User_id: 

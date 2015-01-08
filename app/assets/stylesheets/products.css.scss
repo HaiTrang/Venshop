@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/* line 2, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+* { border: medium none; margin: 0; padding: 0; }
+/* line 3, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+ul, ol, li { list-style: none outside none; }
+p { list-style: none outside none; } /*Cuong add */
+/* line 4, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+img { vertical-align: top; }
+/* line 5, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+td, th { vertical-align: baseline; }
+/* line 6, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+table { border-collapse: collapse; border-spacing: 0; }
+/*Setup default*/
+/* line 9, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+body, td, th { font-family: "メイリオ", "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "小塚ゴシック Pr6N", Meiryo, Osaka, "MS PGothic", "Arial", sans-serif; line-height: 1.6; font-size: 14px; color: #333333; }
+/* line 10, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+body { position: relative; min-height: 100%; background: #FFF; }
+/* line 11, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+a { color: #333333; text-decoration: none; outline: none; }
+/* line 12, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+a:hover { color: #903; }
+/* line 15, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.center { text-align: center; }
+/* line 16, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.f-left { float: left; }
+/* line 17, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.f-right { float: right; }
+/* line 18, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.txt-left { text-align: left; }
+/* line 19, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.txt-right { text-align: right; }
+/* line 20, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.clear { clear: both; }
+/* line 21, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.border { border: solid 1px #CCCCCC; background-color: #FFFFFF; }
+/* line 22, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.wrap { width: 1160px; margin: 0px auto; position: relative; }
+/* line 23, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+#main { width: 1160px; margin: auto; position: relative; border: 1px solid #cccccc; overflow: hidden; }
+/* line 24, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+#content { width: 910px; padding: 0 0 0 0; }
+/* line 25, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+#sidebar { width: 246px; float: left; background:#eeeeee;  }
+/* line 26, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+#sidebar ul { }
+/* line 27, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+#sidebar ul li {  border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    z-index: 800; }
+#sidebar ul li  a{ display:block; width:100%; padding:10px 10px 10px 20px; color:#555555; ;}
+#sidebar ul li  a:hover{ color:#FFF; text-decoration:none; background:#38b04a}
+
+/*2015/01/06 add */
+#sidebar ul p {  border-bottom: 1px solid #e1e1e1;position: relative;z-index: 800; }
+#sidebar ul p  a{ display:block; width:100%; padding:10px 10px 10px 20px; color:#555555; ;}
+#sidebar ul p  a:hover{ color:#FFF; text-decoration:none; background:#38b04a}
+
+/* line 28, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.cont_wrap { overflow: hidden; }
+/* line 29, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.cont_box { float: left; border: 1px solid #cccccc; width: 225px; height: 162px; margin: 20px; font-size: 1em; overflow:hidden; }
+.cont_box a{ display:block; color:#333333}
+.cont_box a:hover{ text-decoration:none}
+.prod_img{ text-align:center; height:80px; margin:0 !important;overflow:hidden;}
+.prod_name{ padding:0px 10px; height:52px; overflow:hidden; margin:0 !important; font-weight:bold;}
+.prod_price{padding:0px 10px; overflow:hidden; height:25px; }
+.cont_box a:hover .prod_price{ color:#3cb54b}
+/* line 30, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.img_div { float: left; border: 0px solid #cccccc; width: 100px; height: 100%; }
+/* line 31, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.info_div { float: right; border: 0px solid #cccccc; width: 340px; height: 100%; margin: 20px; font-size: 14px; }
+/* line 32, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.categories { height: 100%; }
+/* line 33, /home/trangnth/learn_rails/Venshop/app/assets/stylesheets/products.css.scss */
+.btn { background-color: green; }
+
+.footer{ text-align:center; color:#FFF; background:#333; overflow:hidden; 
+         font-size:16px; padding:10px 0; width: 1160px}
+.footer small{ float:none !important}
+.footer small a{ color:#FFF;}
+.footer small a:hover{ color:#3cb54b; text-decoration:none;}
+

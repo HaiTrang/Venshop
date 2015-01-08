@@ -1,0 +1,25 @@
+<h1>Thông tin dat hàng</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  
+    <%= form_for(:order, :url => orders_path) do |f| %>     
+     
+      <%= f.label " Name " %>
+      <%= f.text_field :username, class: 'form-control' %>
+
+      <%= f.label " Nhập địa chỉ email của bạn * " %>
+      <%= f.text_field :email, class: 'form-control' %>
+
+      <%= f.label "Số điện thoại" %>
+      <%= f.text_field :phonenumber, class: 'form-control' %>
+      
+      <%= f.label "Ship Address" %>
+      <%= f.text_field :ShippingAddress, class: 'form-control' %>      
+      
+      <%= f.hidden_field :User_id, :value => session[:user_id] %>
+
+      <%= f.submit "Xong", class: 'btn btn-primary' %>
+      <% end %>
+  </div>    
+ </div>

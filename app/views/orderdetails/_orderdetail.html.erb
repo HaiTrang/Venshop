@@ -1,0 +1,26 @@
+<%= form_for(:orderdetail) do |f| %>
+<%#= form_for(:orderdetail,:html => {:id => "my_form"}) do |f| %>
+<tr>
+  <td valign="top" width="50px" >      
+      <%= image_tag(orderdetail["Product"].urlImage)%>
+  </td>
+  <td valign="top">
+    <span style="color:black"><b><%= orderdetail["Product"].name %></b> </span><br>
+      <b>Giá: <span style="color:#6d2524"><%= orderdetail["Product"].price %></span></b> X
+        
+        <%= f.text_field :Quantity, :value => orderdetail["Quantity"] ,:width => "25px", class: 'form-control' %>
+        <span class="linkitem">
+        <%= f.hidden_field :product_id, :value => orderdetail["Product"].id %>        
+        <%= f.submit "Cập nhật" %>
+        <%#= link_to "Cập nhật", orderdetails_path , :onclick=>"document.getElementById('my_form').submit()"  %>
+        <%= link_to "| Trả lại", "orderdetails/" + orderdetail["Product"].id.to_s , method: :delete,
+		                                  data: { confirm: "You sure?" } %>
+
+        <%#= button_to "Delete", orderdetail_path(id: orderdetail["Product"].id.to_s), :class => "btn btn-primary" ,:method => :delete, data: { confirm: "Are you sure?" }  %><br/>
+        
+      </span>
+  </td>
+</tr>
+<tr><td colspan="2"></td></tr>
+<% end %>
+

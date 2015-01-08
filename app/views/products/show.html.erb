@@ -1,0 +1,20 @@
+<% provide(:title, 'Venshop') %>
+<%= render 'layouts/header' %>
+<h1>Products detail</h1>
+<div id="main">
+    <div class="cont_wrap">    
+      <ul class="<ul class="categories">">
+         <div class="img_div" height = "100%" >
+           <%= image_tag(@productdetails.urlLargeImage)%>
+         </div>
+         <div class="info_div">
+           <p font-size = "19px"><%= @productdetails.name %></p>
+           <p><%= @productdetails.price %></p>
+           <p><b>Information</p></b>
+           <p><%= @productdetails.description %></p>
+           
+         </div>
+      </ul>
+    </div>
+ 
+</div>
