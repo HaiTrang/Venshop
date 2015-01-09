@@ -1,4 +1,6 @@
 class OrderdetailsController < ApplicationController
+  include Product::Controller
+  before_action :list_categories, only: [:index]
 
   def new
 	  
@@ -6,14 +8,14 @@ class OrderdetailsController < ApplicationController
 
   def create
     if !params[:orderdetail].nil?
-      @quantity= params[:orderdetail][:Quantity]
-      @product_id= params[:orderdetail][:product_id]
-      edit_orderdetail(@product_id,@quantity)
+      @quantity = params[:orderdetail][:Quantity]
+      @product_id = params[:orderdetail][:product_id]
+      session[:cart] = Orderdetail.edit_orderdetail(@product_id,@quantity,session[:cart])
     end    
   	redirect_to orderdetails_url
   end
-  def index
-    @categories = Category.all
+
+  def index    
   	@orderdetails =[]  	
     if !session[:product_id].nil?
       cart_info  session[:product_id]
@@ -42,8 +44,8 @@ class OrderdetailsController < ApplicationController
   end
   
   def destroy
-    @details = session[:cart]    
-    @details.delete_if { |detail| detail["Product_id"].to_f == params[:id].to_f }
+    @details = session[:cart]
+    OrderDetail.delete_orderdetail(@details,params[:id])
     session[:cart] = @details     
     redirect_to orderdetails_url
   end

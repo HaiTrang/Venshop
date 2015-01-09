@@ -1,12 +1,7 @@
-<% provide(:title, 'Top page') %>
-<%= render 'layouts/header' %>
-
-
-
 <div id="main">
  <div id="sidebar">
     <ul class="categories">
-      <% @category.each do |cat| %>
+      <% @categories.each do |cat| %>
       <p>
         <%= link_to cat.name, products_path(:cat_id => cat.id) %>   
       </p>  
@@ -19,8 +14,8 @@
       <ul class="categories">
 	      <% @products_rec.each do |item| %>
 	      <div class="cont_box">
-	       <%= link_to image_tag(item.urlImage), productdetail_path(:product_id => item.id) %>
-		    <p><%= link_to item.name , productdetail_path(:product_id => item.id ) %></p>
+	       <%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %>
+		    <p><%= link_to item.name , productdetail_path(id: item.id ) %></p>
 		    <p> <%= item.price %></p> 
 	      </div>
 	      <%end%>
@@ -32,8 +27,8 @@
       <ul class="categories">
 	      <% @products_new.each do |item| %>
 	      <div class="cont_box">
-	        <%= link_to image_tag(item.urlImage), productdetail_path(:product_id => item.id) %>
-		    <p><%= link_to item.name , productdetail_path(:product_id => item.id ) %></p>
+	        <%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %>
+		    <p><%= link_to item.name , productdetail_path(id: item.id ) %></p>
 		    <p> <%= item.price %></p> 
 	       </div>
 	      <%end%>

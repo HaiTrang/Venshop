@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def self.find_user(user_id)
+    return User.find(user_id)     
+  end
+  
+
 end

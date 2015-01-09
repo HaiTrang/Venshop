@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
-	def show
-    @category = Category.all    
+  include Product::Controller          
+  before_action :list_categories, only: [:show]
+  
+  def show    
     @products_new = Category.products_new
-    @products_rec = Category.products_rec
-    
+    @products_rec = Category.products_rec    
   end
 end

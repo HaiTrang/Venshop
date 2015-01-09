@@ -1,6 +1,6 @@
 <div id="main"> 
  <div id="sidebar">
-    <ul class="users">
+    <ul class="categories">
       <% @categories.each do |cat| %>
       <p>
         <%= link_to cat.name, products_path(:cat_id => cat.id) %>

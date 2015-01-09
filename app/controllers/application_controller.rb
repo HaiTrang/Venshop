@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
   include OrderdetailsHelper
   include OrdersHelper
   include CategoriesHelper
+  
 end

@@ -36,12 +36,17 @@ class Solr::Solr
   end
 
   def build_queries(params)
-    query = clean_query(params[:search]).try(:to_s).try(:strip).try(:squish)
-    query.present? ? execute_query(query, params) : {q: "*:*"}
+    if !params.nil?
+      query = clean_query(params[:search]).try(:to_s).try(:strip).try(:squish)
+      query.present? ? execute_query(query, params) : {q: "*:*"}
+    end
+    
   end
 
   def clean_query(query)
-    query.gsub(/[\#|\!|\@|\%|\^|\$|\~|\`|\&|\*|\(|\)|\-|\_|\=|\+|\]|\[|\{|\}|\"|\'|\;|\:|\?|\/|\>|\.|\<|\,|\||\\]/, "")
+    if !query.nil?
+      query.gsub(/[\#|\!|\@|\%|\^|\$|\~|\`|\&|\*|\(|\)|\-|\_|\=|\+|\]|\[|\{|\}|\"|\'|\;|\:|\?|\/|\>|\.|\<|\,|\||\\]/, "")
+    end
   end
 
 end

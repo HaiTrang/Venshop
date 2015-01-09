@@ -41,7 +41,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'rsolr'
 gem 'pry'
-
+gem 'thin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

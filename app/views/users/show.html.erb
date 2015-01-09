@@ -1,9 +1,9 @@
 <div id="main"> 
  <div id="sidebar">
-    <ul class="users">
+    <ul class="categories">
       <% @categories.each do |cat| %>
       <p>
-        <%= link_to cat.name, products_path(:cat_id => cat.id) %>
+        <%= link_to cat.name, products_path(cat_id: cat.id) %>
       </p>  
       <% end %>
     </ul>
@@ -11,7 +11,7 @@
   <div id="content">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-        <h1>Your profile</h1>
+        <h1>Profile</h1>
               <%= form_for(:user) do |f| %>    
                 <%= f.label "Họ tên " %>      
                 <%= f.text_field :name,  :value => @user.name, readonly: true,class: 'form-control' %>

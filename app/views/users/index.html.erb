@@ -1,8 +1,21 @@
-<% provide(:title, 'All users') %>
-<%= render 'layouts/header' %>
-<h1>All users</h1>
-<%= will_paginate %>
-<ul class="users">
-  <%= render @users %>
-</ul>
-<%= will_paginate %>
+<div id="main"> 
+ <div id="sidebar">
+    <ul class="categories">
+      <% @categories.each do |cat| %>
+      <p>
+        <%= link_to cat.name, products_path(:cat_id => cat.id) %>
+      </p>  
+      <% end %>
+    </ul>
+  </div>
+  <div id="content"> 
+    <h1>All users</h1>
+		<%= will_paginate %>
+		<ul class="users">
+		  <%= render @users %>
+		</ul>
+		
+  </div> 
+</div>
+
+

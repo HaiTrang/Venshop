@@ -1,6 +1,3 @@
-<% provide(:title, 'All Products') %>
-<%= render 'layouts/header' %>
-
 <div id="main">
  <div id="sidebar">
     <ul class="categories">
@@ -12,22 +9,22 @@
     </ul>
   </div>
   
-    <% if @products.number_found > 0 %>
-    <div id="content">
-        <div class="cont_wrap">
-        <%= will_paginate @products.result_query %>
-        <ul class="products">        
-        <% @products.result_query.each do |product| %>
-  	      <div class="cont_box">
-    	       <%= link_to image_tag(product["urlImage"]), productdetail_path(product_id: product["id"] ) %>
-    		     <p><%= link_to product["name"].truncate(18) , productdetail_path(product_id: product["id"] ) %></p>
-             <p><%= product["price"] %></p>         
-  	      </div>
-        <% end %>
-        </ul>  
-    </div>    
-    <% else %>
-      <h2>Hiện tại chưa có sản phẩm nào</h2>
-    <% end %>
+  <% if @products.size > 0 %>
+  <div id="content">
+      <div class="cont_wrap">
+      <%= will_paginate %>
+      <ul class="products">        
+      <% @products.each do |product| %>
+	      <div class="cont_box">
+  	       <p class="product_img"><%= link_to image_tag(product.urlImage), productdetail_path(id: product.id ) %></p>
+  		     <p class="product_name"><%= link_to product.name.truncate(50) , productdetail_path(id: product.id ) %></p>
+           <p class="product_price"><%= product.price %></p>         
+	      </div>
+      <% end %>
+      </ul>  
+  </div>    
+  <% else %>
+    <h2>Hiện tại chưa có sản phẩm nào</h2>
+  <% end %>
   </div> 
 </div>

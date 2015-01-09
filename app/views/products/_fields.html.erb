@@ -1,4 +1,4 @@
-<%= f.label :category_id ,"Category" %>      
+      <%= f.label :category_id ,"Category" %>      
       <%= f.collection_select :category_id, Category.all, :id, :name %>
 
       <%= f.label :name ,"Title" %>
@@ -16,7 +16,7 @@
       <%= f.label :price ,"Price" %>
       <%= f.text_field :price, class: 'form-control' %>
       
-      <%= f.label :recommend ,"Recommend item" %>
-      <%= f.check_box :recflag, class: 'form-control' %>     
+      <%= f.label :recommend ,"Recommend" %>
+      <%= f.check_box :recommend, class: 'form-control' %>     
    
       <%= f.hidden_field :user_id, :value => session[:user_id] %> 
