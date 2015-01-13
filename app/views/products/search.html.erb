@@ -8,23 +8,23 @@
       <% end %>
     </ul>
   </div>
-  
-  <% if @products.number_found > 0 %>
   <div id="content">
-      <div class="cont_wrap">
+    <%= render 'layouts/search' %> 
+    <div class="cont_wrap">
       <%= will_paginate @products.result_query %>
-      <ul class="products">        
-      <% @products.result_query.each do |product| %>
-        <div class="cont_box">
-           <p class="product_img"><%= link_to image_tag(product["urlImage"]), productdetail_path(id: product["id"] ) %></p>
-           <p class="product_name"><%= link_to product["name_nm"].truncate(55) , productdetail_path(id: product["id"] ) %></p>
-           <p class="product_price"><%= product["price"] %></p>
-        </div>
+      <% if @products.number_found > 0 %>
+        <ul class="products">        
+        <% @products.result_query.each do |product| %>
+          <div class="cont_box">
+             <p class="product_img"><%= link_to image_tag(product["urlImage"]), productdetail_path(id: product["id"] ) %></p>
+             <p class="product_name"><%= link_to product["name_nm"].truncate(55) , productdetail_path(id: product["id"] ) %></p>
+             <p class="product_price"><%= product["price"] %></p>
+          </div>
+        <% end %>
+        </ul>
+      <% else %>
+        <h2>Hiện tại chưa có sản phẩm nào</h2>
       <% end %>
-      </ul>  
-  </div>    
-  <% else %>
-    <h2>Hiện tại chưa có sản phẩm nào</h2>
-  <% end %>
+    </div>
   </div> 
 </div>

@@ -2,19 +2,22 @@ module Order::Controller
   extend ActiveSupport::Concern
 
   def find_products
-  	@order = Order.find(params[:id])
+  	 @order = Order.find_oder(params[:id])
   	@orderdetails = OrderDetail.show_orderdetail(params[:id])
-  	@products = []
+  	@products = []    
+    @total = 0.0
   	@orderdetails.each do |detail|        
       @hashdetail = {}
-      @product = Product.find(detail["Product_id"])
+      @product = Product.find_products(detail["Product_id"])
       @hashdetail["Product"] = @product;
-      @hashdetail["Quantity"] = detail["Quantity"];      
+      @hashdetail["Quantity"] = detail["Quantity"];
+      @total= @total+ order_total(@product.price,detail["Quantity"])      
       @products.push(@hashdetail)
-    end
+    end    
+    # @products.push(@total)    
   end
 
-  def create_cart
+  def create_cart    
     #Se tao transaction o day nua
     @order = Order.new(order_params)
     @order.User_id = session[:user_id]
@@ -34,14 +37,23 @@ module Order::Controller
           Order.sendmail(@order)
         rescue => e
           puts e.inspect
-          puts e.backtrace
+          puts e.backtrace          
         end
         redirect_to order_path(id: @order.id )
-      else  
-        redirect_to root_url
+       else        
+          @categories = Category.all_category          
+          @user = User.find_user(session[:user_id])     
+          @user.email = order_params[:email]
+          render 'new'         
       end
     end
- end
+ end  
+  
+  def order_total(price,quantity)
+    @price_tmp = price[1..price.length].to_f
+    return @price_tmp * quantity
+  end
+
  private
    def order_params
      params.require(:order).permit(:username, :email, :phonenumber, :ShippingAddress)

@@ -1,18 +1,10 @@
-<div class="container">
-	<div id="search">
+
+<div class="input-group">
 	    <%= form_tag(search_path, :method => "get", id: "search-form" ) do %>
-	    <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
-	    <%= submit_tag "Search", :name => nil,class: 'btn btn-primary' %>
+	    <%= text_field_tag :search, params[:search],class: 'form-control', placeholder: "Search Products" %>
+	    <span class="input-group-btn">
+	    <%= submit_tag "Search", :name => nil,class: 'btn btn-primary btn_search' %>
+	    </span>  
 	    <% end %>
-	</div>
-<!--
-<form class="form-inline">
-  <div class="form-group">    
-    <div class="input-group">    
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Search Products">    
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Search</button>
-</form>
--->
+
 </div>

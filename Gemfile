@@ -32,7 +32,6 @@ gem 'bootstrap-sass',       '3.2.0.0'
 gem 'bcrypt',               '3.1.7'
 
 # Use unicorn as the app server
-gem 'unicorn',        '4.8.3'
 gem 'faker',                '1.4.2'
 gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
@@ -42,6 +41,16 @@ gem 'binding_of_caller'
 gem 'rsolr'
 gem 'pry'
 gem 'thin'
+
+
+gem 'capistrano-rails', '~> 1.1', require: false
+gem 'capistrano-bundler', '~> 1.1', require: false
+gem 'capistrano-rvm', '~> 0.1', require: false
+gem 'capistrano3-unicorn', require: false
+
+# Use Unicorn as the app server
+gem 'unicorn'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -9,6 +9,7 @@
     </ul>
   </div>
   <div id="content"> 
+  <%= render 'layouts/search' %>
   <h1>Thông tin đơn hàng</h1>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -31,28 +32,35 @@
                   <b>1. Thông tin đơn hàng  </b><br>
         </div>    
       <table style="padding-top:1px; "> 
-      <tbody>
-        
+      <tbody>        
         <%= form_for(:order, url: order_path) do |f| %>
-          <% @products.each do |detail|
-            @product = detail["Product"];
-            @quantity = detail["Quantity"];  %>
-              <tr>
-                <td valign="top" width="50px" >      
-                    <%= image_tag(@product["urlImage"])%>
-                </td>
-                <td valign="top">
-                  <span style="color:black"><b><%= @product["name"] %></b> </span><br>
-                    <b>Giá: <span style="color:#6d2524"><%= @product["price"] %></span></b>&nbsp; &nbsp;
-                    <b>Số lượng: <span style="color:#6d2524"><%= @quantity %></span></b>
-                  </span>
-                </td>
-              </tr>
-              <tr><td colspan="2"></td></tr>
+          <% @products.each do |detail| 
+
+            
+            
+              @product = detail["Product"];
+              @quantity = detail["Quantity"];  %>
+                <tr>
+                  <td valign="top" width="50px" >      
+                      <%= image_tag(@product["urlImage"])%>
+                  </td>
+                  <td valign="top">
+                    <span style="color:black"><b><%= @product["name"] %></b> </span><br>
+                      <b>Giá: <span style="color:#6d2524"><%= @product["price"] %></span></b>&nbsp; &nbsp;
+                      <b>Số lượng: <span style="color:#6d2524"><%= @quantity %></span></b>
+                    </span>
+                  </td>
+                </tr>
+                <tr><td colspan="2"></td></tr>
+            
           <% end %>
         <% end %>
       </tbody>
     </table>
+    <div style="width:auto;border-bottom:#d6d6d6 1px solid;"> &nbsp;</div>
+   <!--  <table width="100%" >
+      <tbody><tr><td valign="top"><span style="font-size:medium; font-weight:bold; color:black">Tổng cộng:119,200 VNĐ</span> </td></tr>
+      </tbody></table> -->
     <%= button_to "Trở về trang chủ", root_path, :class => "btn btn-primary" ,:method => :get  %><br />  
       </div>    
     </div>

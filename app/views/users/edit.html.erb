@@ -8,7 +8,8 @@
       <% end %>
     </ul>
   </div>
-  <div id="content"> 
+  <div id="content">
+    <%= render 'layouts/search' %>
     <h1>Update your profile</h1>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -18,7 +19,7 @@
 
           <%= f.label :email %>
           <%= f.text_field :email, class: 'form-control' %>     
-
+          <br/>
           <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
       </div>

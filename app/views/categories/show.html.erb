@@ -9,34 +9,39 @@
     </ul>
   </div>
   <div id="content">
+
+    <%= render 'layouts/search' %>
+  
     <div class="titletext">Recommend Items</div>
+
     <div class="cont_wrap">
       <ul class="categories">
 	      <% @products_rec.each do |item| %>
 	      <div class="cont_box">
-	       <%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %>
-		    <p><%= link_to item.name , productdetail_path(id: item.id ) %></p>
-		    <p> <%= item.price %></p> 
+	      <p class="product_img"><%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %> </p>
+		    <p class="product_name"><%= link_to item.name , productdetail_path(id: item.id ) %></p>
+		    <p class="product_price"> <%= item.price %></p> 
 	      </div>
 	      <%end%>
 	  </ul>
     </div>
+    <br/>
     <div class="titletext">Newest Items</div>
     <div class="cont_wrap">
 
       <ul class="categories">
 	      <% @products_new.each do |item| %>
 	      <div class="cont_box">
-	        <%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %>
-		    <p><%= link_to item.name , productdetail_path(id: item.id ) %></p>
-		    <p> <%= item.price %></p> 
+	      <p class="product_img"><%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %>
+		    <p class="product_name"><%= link_to item.name , productdetail_path(id: item.id ) %></p>
+		    <p class="product_price"> <%= item.price %></p> 
 	       </div>
 	      <%end%>
 	  </ul>      
     </div>
+    
   </div>
  
 </div>
-
 
 

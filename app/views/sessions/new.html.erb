@@ -1,6 +1,6 @@
 <div id="main"> 
   <div id="sidebar">
-    <ul class="session">
+    <ul class="categories">
       <% @categories.each do |cat| %>
       <p>
         <%= link_to cat.name, products_path(:cat_id => cat.id) %>
@@ -9,6 +9,7 @@
     </ul>
   </div>
   <div id="content">
+    <%= render 'layouts/search' %>
     <h1>Log in</h1>
 
     <div class="row">
@@ -26,10 +27,7 @@
           
         <% end %>
 
-        <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-        <% flash.each do |message_type, message| %>
-            <div class="msLogin" ><%= message %></div>
-        <% end %>
+        <p>New user? <%= link_to "Sign up now!", signup_path %></p>        
       </div>
     </div>
   </div>

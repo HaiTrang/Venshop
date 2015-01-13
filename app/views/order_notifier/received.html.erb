@@ -1,5 +1,28 @@
 Dear <%= @order[0]["Name"] %>
-Thank you for your recent order from The Pragmatic Store.
+<p>
+Thank you for your recent order from Venshop.
 You ordered the following items:
-
+</p>
+<table class ="order" >
+	<tr >
+		<td>No</td>
+		<td>Product</td>
+		<td>Price</td>
+		<td>Quantity</td>
+	</tr>   		
+ </tr>
+<% size = @order.size - 1 %>
+<%(1..size).each do |i| %>	
+  <tr>  
+    <td><%= i %></td>
+	<td><%= @order[i]["Product"] %></td>
+	<td><%= @order[i]["Price"] %></td>
+	<td><%= @order[i]["Quantity"] %></td>		
+ </tr>
+<% end %>
+</table>
+<p>
 We'll send you a separate e-mail when your order ships.
+</p>
+
+ 

@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+                    uniqueness: { case_sensitive: false } , :on => :create
+  
+
+
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, :on => :create
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -21,6 +24,9 @@ class User < ActiveRecord::Base
   def self.find_user(user_id)
     return User.find(user_id)     
   end
-  
 
+  def self.findby_user(field, value)    
+    query = field + " = ?"
+    return User.where(query,value)     
+  end
 end

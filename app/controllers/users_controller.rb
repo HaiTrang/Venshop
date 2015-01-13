@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include Product::Controller
   before_action :list_categories, only: [:new, :edit, :show, :index, :update]
-  before_action :find_user, only: [:edit, :show, :correct_user, :update, :destroy]  
+  before_action :find_user, only: [:edit,:show,:update,  :correct_user, :destroy]  
   
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :admin_user,  only: :destroy
@@ -14,26 +14,25 @@ class UsersController < ApplicationController
   	 @user = User.new    
   end
 
-  def create    
+  def create  
     @user = User.new(user_params)
     if @user.save
       log_in @user      
       redirect_to root_url
     else
-      redirect_to root_url
+      @categories = Product.list_Categories
+      render 'new'
     end
   end
   def edit    
     
   end
 
-# khong the update duoc, vao else
-  def update
-    if @user.update_attributes(user_params)
-      # Handle a successful update.
+  def update    
+    if @user.update_attributes(user_params)      
       flash[:success] = "Profile updated"
       redirect_to user_path
-    else      
+    else            
       render 'edit'
     end
   end
@@ -55,7 +54,8 @@ class UsersController < ApplicationController
     end
   end
   # Confirms the correct user.
-  def correct_user    
+  def correct_user   
+    @user = User.find_user(params[:id]) 
     redirect_to(root_url) unless current_user?(@user)
   end
   private

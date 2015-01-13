@@ -6,11 +6,13 @@ module Product::Controller
   end
 
   def find_products
-    @product = Product.find_products(params[:id])
+    # @product = Product.find_products(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def find_user
-    @user = User.find_user(params[:id])
+    
+    @user = User.find_user(session[:user_id])
   end
   
 end

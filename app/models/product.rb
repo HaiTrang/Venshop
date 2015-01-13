@@ -13,5 +13,9 @@ class Product < ActiveRecord::Base
   	return Product.find(product_id)     
   end
   
+  def self.search_product(field, value)
+    query = field + " = ?"
+    return Product.where(query,value)     
+  end
 end
 

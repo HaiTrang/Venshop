@@ -8,10 +8,10 @@
       <% end %>
     </ul>
   </div>
-  
-  <% if @products.size > 0 %>
   <div id="content">
+    <%= render 'layouts/search' %> 
       <div class="cont_wrap">
+      <% if @products.size > 0 %>
       <%= will_paginate %>
       <ul class="products">        
       <% @products.each do |product| %>
@@ -24,7 +24,7 @@
       </ul>  
   </div>    
   <% else %>
-    <h2>Hiện tại chưa có sản phẩm nào</h2>
+    <h2>There no item at the present</h2>
   <% end %>
   </div> 
 </div>

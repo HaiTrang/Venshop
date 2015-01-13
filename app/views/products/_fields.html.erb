@@ -1,5 +1,5 @@
-      <%= f.label :category_id ,"Category" %>      
-      <%= f.collection_select :category_id, Category.all, :id, :name %>
+      <%= f.label :category_id ,"Category"%>      
+      <%= f.collection_select :category_id, Category.all, :id, :name ,class: 'form-control select_cat'%>
 
       <%= f.label :name ,"Title" %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -16,7 +16,7 @@
       <%= f.label :price ,"Price" %>
       <%= f.text_field :price, class: 'form-control' %>
       
-      <%= f.label :recommend ,"Recommend" %>
-      <%= f.check_box :recommend, class: 'form-control' %>     
-   
-      <%= f.hidden_field :user_id, :value => session[:user_id] %> 
+      <%= f.label :recommend ,"Recommend", class: 'lblrecommend' %>
+      <%= f.check_box :recommend, class: 'form-control chckrecommend' %>     
+    
+      <%= f.hidden_field :user_id, value: session[:user_id] %> 

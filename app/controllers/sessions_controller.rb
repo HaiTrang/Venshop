@@ -1,9 +1,15 @@
 class SessionsController < ApplicationController
-  def new
-    @categories = Category.all
+  include Product::Controller
+
+  before_action :list_categories, only: [:new, :create]
+
+  def new    
   end
-  def create
-      user = User.find_by(email: params[:session][:email].downcase)
+  def create    
+
+      # user = User.findby_user("email", params[:session][:email].downcase)
+      user = User.find_by(:email => params[:session][:email].downcase)
+      
       if user && user.authenticate(params[:session][:password])
         # Log the user in and redirect to the user's show page.
         log_in user

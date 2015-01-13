@@ -55,7 +55,7 @@ request.configure(
    :Books => :book,
  }
 
-2.times do |i|
+3.times do |i|
   cats.each do |cat|
     puts cat.name + "------------" + Keywords[cat.name.to_sym][i].to_s
     params = {

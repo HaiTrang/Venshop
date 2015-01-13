@@ -9,8 +9,8 @@ class OrderdetailsController < ApplicationController
   def create
     if !params[:orderdetail].nil?
       @quantity = params[:orderdetail][:Quantity]
-      @product_id = params[:orderdetail][:product_id]
-      session[:cart] = Orderdetail.edit_orderdetail(@product_id,@quantity,session[:cart])
+      @product_id = params[:orderdetail][:product_id]      
+      session[:cart] = OrderDetail.edit_orderdetail(@product_id,@quantity,session[:cart])
     end    
   	redirect_to orderdetails_url
   end
@@ -23,7 +23,7 @@ class OrderdetailsController < ApplicationController
     if !session[:cart].nil?
       session[:cart].each do |item|
         @hashdetail = {}
-    	  @product = Product.find(item["Product_id"])
+    	  @product = Product.find_products(item["Product_id"])
     	  @hashdetail["Product"] = @product;
     	  @hashdetail["Quantity"] = item["Quantity"];    	  
     	  @orderdetails.push(@hashdetail)

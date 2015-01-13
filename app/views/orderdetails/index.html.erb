@@ -9,8 +9,9 @@
     </ul>
   </div>
   <div id="content"> 
+  <%= render 'layouts/search' %>
   <div style="cursor:pointer;width:auto;border-bottom:#d6d6d6 1px dotted;"> 
-    <h3>GIỎ HÀNG CỦA BẠN</h3>    
+    <h3>YOUR CART</h3>    
     <% if !session[:cart].nil? && !session[:cart].blank? %>    
       </div>
         <div style="padding-top:2px">
@@ -20,24 +21,20 @@
           <%= render partial: "orderdetail", collection: @orderdetails %>
         </tbody>
         </table>
-      <div style="width:auto;border-bottom:#d6d6d6 1px solid;"> &nbsp;</div>
-      <table width="100%">
-      <tbody><tr><td valign="top"><span style="font-size:medium; font-weight:bold; color:black">Tổng cộng:119,200 VNĐ</span></td></tr>
-      </tbody></table>
+      <div style="width:auto;border-bottom:#d6d6d6 1px solid;"> &nbsp;</div>      
       <br>
       <div style="padding-left:300px;padding-right:300px">
         <center>
         <%= form_for(:orderdetail, :url => deleteallcart_path) do |f| %>     
-           <%= f.submit "Trả lại toàn bộ", class: 'btn btn-primary' %> <br/>
+           <%= f.submit "Clear your cart", class: 'btn btn-primary btn_orderdetails' %> <br/>
         <% end %>
         <br/>
-           <%= button_to "Tiếp tục mua hàng", root_path, :class => "btn btn-primary" ,:method => :get  %><br/>    
-           <%= button_to "Thanh toán", new_order_path, :class => "btn btn-primary" ,:method => :get  %><br />       
+           <%= button_to "Continue", root_path, :class => "btn btn-primary btn_orderdetails" ,:method => :get  %><br/>    
+           <%= button_to "Purchase", new_order_path, :class => "btn btn-primary btn_orderdetails" ,:method => :get  %><br />       
        </center></div>
     
     <% else %>
-      Giỏ hàng đang trống. Mời bạn <%= link_to "Mua hàng", root_path , method: :get%>
-
+      Your cart is empty. <%= link_to "Buy now", root_path , method: :get%>
     <% end %>
   </div>
 </div> 

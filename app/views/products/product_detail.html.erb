@@ -9,6 +9,7 @@
     </ul>
   </div>
   <div id="content">
+    <%= render 'layouts/search' %>
     <div class="cont_wrap">    
       <ul class="products">
          <div class="img_div" height = "100%" >
@@ -25,12 +26,8 @@
            %>
            <%= form_for(:product, url: productdetail_path(id: @product.id),method: "post") do |f| %>
             
-            <%= f.submit "Buy", class: 'btn btn-primary' %> 
+            <%= f.submit "Buy", class: 'btn btn-primary btn-buy' %> 
           <% end %>
-
-          
-
-           
          </div>
       </ul>
     </div>

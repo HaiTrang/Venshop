@@ -1,8 +1,6 @@
-
 <div id="main"> 
- <div id="sidebar">
- 
-    <ul class="products">
+ <div id="sidebar"> 
+    <ul class="categories">
       <% @categories.each do |cat| %>
       <p>
         <%= link_to cat.name, products_path(:cat_id => cat.id) %>
@@ -11,24 +9,27 @@
     </ul>
   </div>
   <div id="content">
-    <div class="cont_wrap">
-      <%#= will_paginate %>
-      <ul class="products">
-        <% if @myproducts.size > 0 %>
-           <% @myproducts.each do |item| %>
-      	      <div class="cont_box">
-      	        <p ><%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %></p>
-          		  <p ><%= link_to item.name , productdetail_path(id: item.id) %></p>
-          		  <p ><%= item.price %></p>		    
+  <%= render 'layouts/search' %>
+  <%= will_paginate %>
+    <div class="cont_wrap">      
+      <% if @products.size > 0 %>        
+           <% @products.each do |item| %>
+           <ul class="products">
+      	      <div class="cont_box_myproduct">
+      	        <p class="product_img"><%= link_to image_tag(item.urlImage), productdetail_path(id: item.id) %></p>
+          		  <p class="product_name"><%= link_to item.name , productdetail_path(id: item.id) %></p>
+          		  <p class="product_price"><%= item.price %></p>		    
                    <%= link_to "edit" , edit_product_path(id: item.id) %>
                    <%= link_to "delete", product_path(id: item.id), method: :delete,
                                                 data: { confirm: "You sure?" } %>           
       	       </div>
+            </ul>
            <%end%> 
-        <% else %>
-          <h2>Hiện tại chưa có sản phẩm nào</h2>
-        <% end %>       
-      </ul>
+      <% else %>
+        <h2>There no item at the present</h2>
+      <% end %>       
+      
     </div>
   </div> 
 </div>
+

@@ -8,5 +8,9 @@ class Category < ActiveRecord::Base
   def self.products_rec
   	return Product.where(recommend: true).limit(6).order('id asc')
   end
+  
+  def self.all_category
+  	return Category.all
+  end
 
 end

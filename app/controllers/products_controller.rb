@@ -17,8 +17,10 @@ class ProductsController < ApplicationController
     end
   end 
 
-  def edit     
-    
+  def edit
+    unless logged_in?
+      redirect_to root_path
+    end
   end
 
   def update
@@ -35,7 +37,7 @@ class ProductsController < ApplicationController
   end
   def index    
     if !cat_id.nil?
-      @products = Product.where(category_id: cat_id).all.paginate(page: params[:page],per_page: 12)
+      @products = Product.search_product("category_id", cat_id).all.paginate(page: params[:page],per_page: 12)
     else
       @products = Product.paginate(page: params[:page],per_page: 12)
     end  
@@ -49,7 +51,8 @@ class ProductsController < ApplicationController
   end
 
   def my_products    
-    @myproducts = Product.myproducts(session[:user_id])    
+    # @myproductst_tmp = Product.myproducts(session[:user_id])#.all.paginate(page: params[:page],per_page: 12)    
+    @products =Product.myproducts(session[:user_id]).all.paginate(page: params[:page],per_page: 12)
   end
   
   def destroy

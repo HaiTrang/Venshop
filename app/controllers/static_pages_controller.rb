@@ -7,12 +7,12 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
-  	
+  	@categories = Category.all
   end
   def about
   	
   end
   def new
-  	@categories = Category.all
+  	
   end
 end

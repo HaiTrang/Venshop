@@ -75,7 +75,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 10px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
@@ -132,6 +132,7 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+  
 }
 
 input {
@@ -152,14 +153,10 @@ input {
   }
 }
 
-btnLogin {
-  weight:200px;
-} 
-
-
-.msLogin {  
-  color: red;
+.pagination {
+    display: inline-block;
+    padding-left: 0px;
+    margin: 10px 0px;
+    border-radius: 4px;
 }
-.btn {
-    background-color: green;
-}
+

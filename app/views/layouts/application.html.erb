@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
@@ -10,10 +11,19 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= render 'layouts/search' %>
+    
     <div class="container">
       <%= yield %>      
       <%= render 'layouts/footer' %>      
     </div>
   </body>
 </html>
+<script>
+$( document ).ready(function() {
+        var sidebarHeight = $( "#sidebar" ).height();
+        var contentHeight = $( "#content" ).height()
+        if(sidebarHeight < contentHeight){
+          $( "#sidebar" ).height(contentHeight);
+        }
+      });
+</script>
